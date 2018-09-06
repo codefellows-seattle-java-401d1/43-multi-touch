@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity implements
         for (int i = 0; i < pointers; i++) {
             Log.d("ACTIONYY", "for loop");
             float xx = motionEvent.getX(i);
-            float yy = motionEvent.getX(i);
+            float yy = motionEvent.getY(i);
             int id = motionEvent.getPointerId(i);
 
             if (action == MotionEvent.ACTION_DOWN || masked == MotionEvent.ACTION_POINTER_DOWN) {
@@ -79,6 +79,9 @@ public class MainActivity extends AppCompatActivity implements
                 isActive = true;
             }
         }
+        drawer.clear();
+        drawer.draw();
+
         return isActive;
     }
 }
