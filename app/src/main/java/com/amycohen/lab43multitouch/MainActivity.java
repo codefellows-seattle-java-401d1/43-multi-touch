@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements
         ButterKnife.bind(this);
 
         image.addOnLayoutChangeListener(this);
+        image.setOnTouchListener(this);
     }
 
     @Override
@@ -49,6 +50,7 @@ public class MainActivity extends AppCompatActivity implements
 
     @Override
     public boolean onTouch(View view, MotionEvent motionEvent) {
+        Log.d("ACTIONZZ", "onTouch");
         boolean isActive = false;
         int pointers = motionEvent.getPointerCount();
 
@@ -56,6 +58,7 @@ public class MainActivity extends AppCompatActivity implements
         int masked = motionEvent.getActionMasked();
 
         for (int i = 0; i < pointers; i++) {
+            Log.d("ACTIONYY", "for loop");
             float xx = motionEvent.getX(i);
             float yy = motionEvent.getX(i);
             int id = motionEvent.getPointerId(i);
