@@ -55,9 +55,10 @@ public class MainActivity extends AppCompatActivity implements
         int masked = motionEvent.getActionMasked();
 
         for (int i = 0; i < pointers; i++) {
-            float xx = motionEvent.getX();
+            float xx = motionEvent.getX(i);
+            float yy = motionEvent.getX(i);
+            int id = motionEvent.getPointerId(i);
 
-            
             if (action == MotionEvent.ACTION_DOWN || masked == MotionEvent.ACTION_POINTER_DOWN) {
 
             } else if (action == MotionEvent.ACTION_UP || masked == MotionEvent.ACTION_POINTER_UP) {
