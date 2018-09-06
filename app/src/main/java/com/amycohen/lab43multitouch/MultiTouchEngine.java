@@ -6,10 +6,16 @@ import java.util.Map;
 public class MultiTouchEngine {
 
     /*
-    Keep track of where you are touching on the screen. Separated from Drawer Engine because it doesn't actually draw anything, it just tracks what is drawn.
+    Keep track of where you are touching on the screen.
+     Separated from Drawer Engine because it doesn't actually
+      draw anything, it just tracks what is drawn.
      */
 
     public Map<Integer, TouchPointer> pointers;
+
+    public MultiTouchEngine() {
+        pointers = new HashMap<>();
+    }
     public void add(int id, float xx, float yy) {
         TouchPointer pointer = new TouchPointer(id, xx, yy);
         pointers.put(id, pointer);
