@@ -9,6 +9,10 @@ import android.widget.ImageView;
 
 public class MultiTouchEngineDrawer {
 
+    /*
+    Separated from the MultiTouchEngine.  The Drawer uses the Engine but handles separate actions from the Engine. The Drawer specifically deals with the creation of the circles and the clearing of the entire canvas.  This is unlike the engine which handles interactions with the circles and clears a particular circle (not all of them at once).
+     */
+
     public static final int SIZE = 100;
 
     MultiTouchEngine engine;
