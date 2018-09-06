@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
@@ -43,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements
         bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
         canvas = new Canvas(bitmap);
         engine = new MultiTouchEngine();
-        drawer = new MultiTouchEngineDrawer(engine);
+        drawer = new MultiTouchEngineDrawer(engine, bitmap, canvas, image);
     }
 
     @Override
@@ -60,14 +61,17 @@ public class MainActivity extends AppCompatActivity implements
             int id = motionEvent.getPointerId(i);
 
             if (action == MotionEvent.ACTION_DOWN || masked == MotionEvent.ACTION_POINTER_DOWN) {
+                Log.d("ACTION", "down");
                 engine.add(id, xx, yy);
                 isActive = true;
 
             } else if (action == MotionEvent.ACTION_UP || masked == MotionEvent.ACTION_POINTER_UP) {
+                Log.d("ACTION", "up");
                 engine.remove(id);
                 isActive = false;
 
             } else if (action == MotionEvent.ACTION_MOVE) {
+                Log.d("ACTION", "move");
                 engine.update(id, xx, yy);
                 isActive = true;
             }
