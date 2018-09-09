@@ -13,7 +13,7 @@ public class TouchPoints {
         this.id = id;
         this.xx = xx;
         this.yy = yy;
-        
+
         int red = (int) (Math.random() * 255);
         int green = (int) (Math.random() * 255);
         int blue = (int) (Math.random() * 255);
