@@ -21,4 +21,3 @@ public class TouchPoints {
         this.color = Color.rgb(red, green, blue);
     }
 }
-}

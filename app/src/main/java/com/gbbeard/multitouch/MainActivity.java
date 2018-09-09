@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity implements
     protected Bitmap bitmap;
     protected Canvas canvas;
     protected MultiTouchEngine engine;
-    protected MultiTouchEngineDrawer drawer;
+    protected MultiTouchDrawer drawer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
