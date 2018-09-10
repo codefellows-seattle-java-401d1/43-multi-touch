@@ -4,10 +4,11 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.PorterDuff;
 import android.widget.ImageView;
 
 public class MultiTouchEngineDrawer {
-    public static final int SIZE = 100;
+    public static final int SIZE = 200;
 
     MultiTouchEngine engine;
     Bitmap bitmap;
@@ -24,7 +25,7 @@ public class MultiTouchEngineDrawer {
     }
 
     public void clear(){
-        canvas.drawColor(Color.WHITE);
+        canvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);
         imageView.setImageBitmap(bitmap);
 
     }
@@ -33,13 +34,11 @@ public class MultiTouchEngineDrawer {
         Paint brush = new Paint (Paint.ANTI_ALIAS_FLAG);
         for(TouchPointer pointer : engine.pointers.values()){
             if(!pointer.isDisabled) {
-                brush.setColor(Color.GRAY);
+                brush.setColor(pointer.color);
             } else {
                 brush.setColor(pointer.color);
-                canvas.drawCircle(pointer.xx, pointer.yy, SIZE, brush);
             }
-
-
+            canvas.drawCircle(pointer.xx, pointer.yy, SIZE, brush);
         }
         imageView.setImageBitmap(bitmap);
     }

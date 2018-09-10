@@ -1,5 +1,7 @@
 package com.android.sooz.multitouch;
 
+import android.graphics.Color;
+
 class TouchPointer {
 
     int id;
@@ -18,6 +20,9 @@ class TouchPointer {
         int green = (int) (Math.random() *255);
         int blue = (int) (Math.random() *255);
 
-        this.color = Color(red,green,blue);
+
+        this.color = Color.rgb(red,green,blue);
+
+
     }
 }
