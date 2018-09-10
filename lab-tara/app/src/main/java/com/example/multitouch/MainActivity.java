@@ -49,6 +49,8 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public boolean onTouch(View view, MotionEvent motionEvent) {
+        boolean isInteracting = false;
+
         int pointers = motionEvent.getPointerCount();
 
         for (int i = 0; i < pointers; i++) {
@@ -57,21 +59,28 @@ public class MainActivity extends AppCompatActivity
 
             int id = motionEvent.getPointerId(i);
             int action = motionEvent.getAction();
-            if (action == MotionEvent.ACTION_DOWN || action == MotionEvent.ACTION_POINTER_DOWN) {
+            int masked = motionEvent.getActionMasked();
+
+            if (action == MotionEvent.ACTION_DOWN || masked == MotionEvent.ACTION_POINTER_DOWN) {
                 Log.d("ACTION", "down");
                 engine.add(id, xx, yy);
-            } else if(action == MotionEvent.ACTION_UP ||action == MotionEvent.ACTION_POINTER_UP) {
+                isInteracting = true;
+            } else if(action == MotionEvent.ACTION_UP || masked == MotionEvent.ACTION_POINTER_UP) {
                 Log.d("ACTION", "up");
                 engine.remove(id);
+                isInteracting = true;
             } else if (action == MotionEvent.ACTION_MOVE) {
                 Log.d("ACTION", "move");
                 engine.update(id, xx, yy);
+                isInteracting = true;
             }
         }
 
-        drawer.clear();
-        drawer.draw();
+        if (isInteracting) {
+            drawer.clear();
+            drawer.draw();
+        }
 
-        return false;
+        return isInteracting;
     }
 }
