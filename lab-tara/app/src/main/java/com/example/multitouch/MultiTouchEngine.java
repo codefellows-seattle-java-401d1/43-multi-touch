@@ -2,10 +2,15 @@ package com.example.multitouch;
 
 import android.text.method.Touch;
 
+import java.util.HashMap;
 import java.util.Map;
 
 class MultiTouchEngine {
     Map<Integer, TouchPointer> pointers;
+
+    public MultiTouchEngine() {
+        pointers = new HashMap<>();
+    }
 
     public void add(int id, float xx, float yy) {
         TouchPointer pointer = new TouchPointer(id, xx, yy);
