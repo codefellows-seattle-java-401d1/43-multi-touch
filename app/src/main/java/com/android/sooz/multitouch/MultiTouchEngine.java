@@ -3,7 +3,8 @@ package com.android.sooz.multitouch;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MultiTouchEngine {
+
+class MultiTouchEngine {
     Map<Integer, TouchPointer> pointers;
 
     public MultiTouchEngine(){
@@ -26,6 +27,23 @@ public class MultiTouchEngine {
     }
 
     public void remove(int id){
-        //see lecture 3:23
+        pointers.remove(id);
+    }
+
+
+    public void pickOneWinner() {
+
+        int size = pointers.values().size();
+        int choice = (int) Math.floor(Math.random() * size);
+
+        int n = 0;
+        for (TouchPointer pointer: pointers.values()){
+            if (n != choice){
+                pointer.isDisabled = true;
+            } else{
+                pointer.isDisabled = false;
+            }
+            n++;
+        }
     }
 }
