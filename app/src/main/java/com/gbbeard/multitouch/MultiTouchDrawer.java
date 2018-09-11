@@ -38,6 +38,4 @@ public class MultiTouchDrawer {
         imageView.setImageBitmap(bitmap);
     }
 
-
-
 }

@@ -50,7 +50,6 @@ public class MainActivity extends AppCompatActivity implements
 
     @Override
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        Log.d("ACTIONZZ", "onTouch");
         boolean isActive = false;
         int pointers = motionEvent.getPointerCount();
 
@@ -58,23 +57,19 @@ public class MainActivity extends AppCompatActivity implements
         int masked = motionEvent.getActionMasked();
 
         for (int i = 0; i < pointers; i++) {
-            Log.d("ACTIONYY", "for loop");
             float xx = motionEvent.getX(i);
             float yy = motionEvent.getY(i);
             int id = motionEvent.getPointerId(i);
 
             if (action == MotionEvent.ACTION_DOWN || masked == MotionEvent.ACTION_POINTER_DOWN) {
-                Log.d("ACTION", "down");
                 engine.add(id, xx, yy);
                 isActive = true;
 
             } else if (action == MotionEvent.ACTION_UP || masked == MotionEvent.ACTION_POINTER_UP) {
-                Log.d("ACTION", "up");
                 engine.remove(id);
                 isActive = false;
 
             } else if (action == MotionEvent.ACTION_MOVE) {
-                Log.d("ACTION", "move");
                 engine.update(id, xx, yy);
                 isActive = true;
             }
