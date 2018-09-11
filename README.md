@@ -1,5 +1,7 @@
 # ![CF](http://i.imgur.com/7v5ASc8.png) Multi-Touch
 
+ScreenShots on phone or app also on phone. Will add later. 
+
 ## Resources  
 * [Handling Multi-Touch Gestures](https://developer.android.com/training/gestures/multi)
 * [Chwazi Finger Chooser](https://play.google.com/store/apps/details?id=com.tendadigital.chwaziApp&hl=en)
